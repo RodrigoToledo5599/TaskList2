@@ -22,7 +22,7 @@ Route::get('/addTask',function(){
     return view('addTask');
 });
 Route::post('/addTaskRequest',[HomeControllerWeb::class, 'AddTaskAndRealoadHomePage']);
-
-
+Route::get('/editTaskPage/{id}',[HomeControllerWeb::class, 'EditTaskPage']);
+Route::put('/editTaskRequest/{id}',[HomeControllerWeb::class, 'EditTaskRequest']);
 
 Route::get('/deleteTaskRequest/{id}',[HomeControllerWeb::class, 'DeleteTaskRequest']);

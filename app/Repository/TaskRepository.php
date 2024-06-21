@@ -40,6 +40,10 @@ class TaskRepository
 
     public function updateTask($taskId, $task){
         
+        $result = DB::table('tasks')
+            ->where('id', $taskId)
+            ->update($task);
+        return $result;
     }
 
 }

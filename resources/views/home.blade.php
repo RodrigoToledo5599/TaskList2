@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TaskList App</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    a{
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration:underline;
+    }
+  </style>
 </head>
 <body>
   <div class="container py-5">
@@ -19,7 +27,7 @@
             <li class="list-group-item d-flex  flex-row justify-content-between ">
               <div>
                 {{$task->id}} &nbsp;&nbsp;&nbsp;&nbsp;
-                {{$task->name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/editTaskPage/{{$task->id}}"> {{$task->name}} </a>
               </div>
               <a class="btn btn-warning" data-method="delete" href="/deleteTaskRequest/{{$task->id}}"> delete </a>
             </li>
