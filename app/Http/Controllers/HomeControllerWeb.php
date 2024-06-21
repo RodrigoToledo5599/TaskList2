@@ -32,8 +32,13 @@ class HomeControllerWeb extends Controller
         return redirect('/home');
     }
 
-    public function EditTaskAndRealoadHomePage($task,$id){
+    public function EditTaskPage($id){
         $taskRepo = new TaskRepository();
-        
+        $task = $taskRepo->getTask($id);
+        // dd(json_decode($task)[0]);
+
+        return view('editTask',[
+                                "task" => json_decode($task)[0]
+        ]);
     }
 }

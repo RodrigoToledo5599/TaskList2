@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TaskList App</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    a{
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration:underline;
+    }
+  </style>
 </head>
 <body>
   <div class="container py-5">
@@ -17,8 +25,8 @@
         <ul class="list-group">
           @foreach($tasks as $task)
             <li class="list-group-item">
-              <a href="editTask/{{$task->id}}">
-                {{$task->id}} &nbsp;&nbsp;&nbsp;&nbsp;
+              {{$task->id}} &nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/editTaskPage/{{$task->id}}">
                 {{$task->name}}
               </a>
             </li>

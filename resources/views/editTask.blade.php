@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="container py-5">
-    <h1 class="display-4 text-center">Add a New Task</h1>
+    <h1 class="display-4 text-center">Edit your Task</h1>
     <div class="row justify-content-center">
       <div class="col-md-6">
         <form action="/addTaskRequest" method="POST">
@@ -16,13 +16,18 @@
             @method('PUT')
           <div class="mb-3">
             <label for="taskTitle" class="form-label">Task name</label>
-            <input name="name" type="text" class="form-control" id="taskTitle" placeholder="type here">
+            <input name="name" type="text" class="form-control" id="taskTitle" value="{{$task->name}}">
           </div>
           <div class="mb-3">
             <label for="taskDescription" class="form-label" >Task description </label>
-            <textarea name="description" class="form-control" id="taskDescription" placeholder="type here (optional)" rows="3"></textarea>
+            <textarea name="description" class="form-control" id="taskDescription" rows="3">{{$task->description}}</textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Add</button>
+          <div class="mb-3">
+            <input class="form-check-input" type="checkbox" value="done" id="flexCheckChecked" checked>
+            <label class="form-check-label" for="flexCheckChecked">done?</label>
+          </div>
+          {{-- <br><br> --}}
+          <button type="submit" class="btn btn-primary">Edit</button>
         </form>
         <br>
         <a href="/home" class="btn btn-primary" >home page</a>
