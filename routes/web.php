@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeControllerWeb;
+use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,16 +15,11 @@ use App\Http\Controllers\HomeControllerWeb;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/',function(){return view('login');});
+Route::post('/login',[AuthController::class, 'Login']);
 Route::get('/home',[HomeControllerWeb::class, 'LoadHomePage']);
-Route::get('/addTask',function(){
-    return view('addTask');
-});
+Route::get('/addTask',function(){return view('addTask');});
 Route::post('/addTaskRequest',[HomeControllerWeb::class, 'AddTaskAndRealoadHomePage']);
 Route::get('/editTaskPage/{id}',[HomeControllerWeb::class, 'EditTaskPage']);
 Route::put('/editTaskRequest/{id}',[HomeControllerWeb::class, 'EditTaskRequest']);
-
 Route::get('/deleteTaskRequest/{id}',[HomeControllerWeb::class, 'DeleteTaskRequest']);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repository\TaskRepository;
+use Auth;
 
 
 class HomeControllerWeb extends Controller
@@ -15,7 +16,9 @@ class HomeControllerWeb extends Controller
 
     public function LoadHomePage(){
         $taskRepo = new TaskRepository();
-        $tasks = $taskRepo->getAllTasks();
+        $user = Auth::user();
+        $tasks = $taskRepo->getAllTasksFromUser($user->id);
+        // dd($tasks);
         return view('home',[
                             'tasks' => $tasks
                             ]);
@@ -23,12 +26,13 @@ class HomeControllerWeb extends Controller
 
     public function AddTaskAndRealoadHomePage(Request $request){
         $taskRepo = new TaskRepository();
+        $user = Auth::user();
         $task = [
             "name" => $request["name"],
             "description" => $request["description"],
-            "done" => false
+            "done" => false,
         ];
-        $taskRepo->createTask($task);
+        $taskRepo->createTask($task,$user->id);
         return redirect('/home');
     }
 
@@ -44,7 +48,7 @@ class HomeControllerWeb extends Controller
 
     public function EditTaskRequest($id,Request $request){
         $taskRepo = new TaskRepository();
-        $doneResult = $request['done'] == null ? 0 : 1;
+        $doneResult = $request['done'] == null ? false : true;
         // dd($doneResult);
         $task = [
             "name" => $request['name'],

@@ -25,9 +25,9 @@
           <div class="mb-3">
             <label class="form-check-label" for="flexCheckChecked">Done?</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             @if($task->id == 1)
-              <input class="form-check-input" type="checkbox" value="done" id="flexCheckChecked" checked>
+              <input class="form-check-input" name="done" type="checkbox" value="done" id="flexCheckChecked" checked>
             @else
-              <input class="form-check-input" type="checkbox" value="done" id="flexCheckChecked">
+              <input class="form-check-input" name="done" type="checkbox" value="done" id="flexCheckChecked">
             @endif
           </div>
           {{-- <br><br> --}}
