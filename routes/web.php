@@ -18,6 +18,8 @@ use App\Http\Controllers\AuthController;
 Route::get('/',function(){return view('login');});
 Route::post('/login',[AuthController::class, 'Login']);
 Route::get('/home',[HomeControllerWeb::class, 'LoadHomePage']);
+Route::get('/homedone',[HomeControllerWeb::class, 'LoadHomePageDone']);
+Route::get('/homenotdone',[HomeControllerWeb::class, 'LoadHomePageNotDone']);
 Route::get('/addTask',function(){return view('addTask');});
 Route::post('/addTaskRequest',[HomeControllerWeb::class, 'AddTaskAndRealoadHomePage']);
 Route::get('/editTaskPage/{id}',[HomeControllerWeb::class, 'EditTaskPage']);

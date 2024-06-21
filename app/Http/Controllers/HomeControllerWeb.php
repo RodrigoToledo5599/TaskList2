@@ -20,7 +20,29 @@ class HomeControllerWeb extends Controller
         $tasks = $taskRepo->getAllTasksFromUser($user->id);
         // dd($tasks);
         return view('home',[
-                            'tasks' => $tasks
+                            'tasks' => $tasks,
+                            'status' => "All"
+                            ]);
+    }
+    public function LoadHomePageNotDone(){
+        $taskRepo = new TaskRepository();
+        $user = Auth::user();
+        $tasks = $taskRepo->getAllTasksFromUserNotDone($user->id);
+        // dd($tasks);
+        return view('home',[
+                            'tasks' => $tasks,
+                            'status' => "Not Done"
+                            ]);
+    }
+
+    public function LoadHomePageDone(){
+        $taskRepo = new TaskRepository();
+        $user = Auth::user();
+        $tasks = $taskRepo->getAllTasksFromUserDone($user->id);
+        // dd($tasks);
+        return view('home',[
+                            'tasks' => $tasks,
+                            'status' => "Done"
                             ]);
     }
 

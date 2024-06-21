@@ -19,9 +19,25 @@ class TaskRepository
     }
 
     public function getAllTasksFromUser($id){
-        $tasks = DB::table('tasks')->where('user_id',$id)->get();
+        $tasks = DB::table('tasks')
+            ->where('user_id',$id)->get();
         return $tasks;
     }
+
+    public function getAllTasksFromUserDone($id){
+        $tasks = DB::table('tasks')
+            ->where('user_id',$id)
+            ->where('done', 1)->get();
+        return $tasks;
+    }
+
+    public function getAllTasksFromUserNotDone($id){
+        $tasks = DB::table('tasks')
+            ->where('user_id',$id)
+            ->where('done', 0)->get();
+        return $tasks;
+    }
+
 
     public function createTask($task,$userid){
         try{
