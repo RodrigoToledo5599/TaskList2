@@ -43,7 +43,8 @@
       </div>
     </div>
     <br>
-    <a href="/homedone" class="btn btn-primary btn-success" >Done</a>
+    <a href="/home" class="btn btn-primary btn-info" >All</a>
+    <a href="/homedone" class="btn btn-primary btn-info" >Done</a>
     <a href="/homenotdone" class="btn btn-primary btn-warning" >Not Done</a>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
