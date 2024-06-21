@@ -17,6 +17,8 @@
 <body>
   <div class="container py-5">
     <a href="/addTask" class="btn btn-primary btn-lg" >Add Task</a>
+    <a href="/addTask" class="btn btn-primary btn-lg" >Add Task</a>
+    <a href="/addTask" class="btn btn-primary btn-lg" >Add Task</a>
     <a href="/" class="btn btn-primary btn-lg" >Change Account</a>
     <h1 class="display-4 text-center">{{$status}} </h1>
     <hr class="my-5">
