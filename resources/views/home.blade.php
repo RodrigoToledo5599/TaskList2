@@ -17,8 +17,10 @@
         <ul class="list-group">
           @foreach($tasks as $task)
             <li class="list-group-item">
-              {{$task->id}} &nbsp;&nbsp;&nbsp;&nbsp;
-              {{$task->name}}
+              <a href="editTask/{{$task->id}}">
+                {{$task->id}} &nbsp;&nbsp;&nbsp;&nbsp;
+                {{$task->name}}
+              </a>
             </li>
            @endforeach
         </ul>

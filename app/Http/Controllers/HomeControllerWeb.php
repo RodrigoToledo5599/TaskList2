@@ -30,7 +30,10 @@ class HomeControllerWeb extends Controller
         ];
         $taskRepo->createTask($task);
         return redirect('/home');
+    }
 
-
+    public function EditTaskAndRealoadHomePage($task,$id){
+        $taskRepo = new TaskRepository();
+        
     }
 }

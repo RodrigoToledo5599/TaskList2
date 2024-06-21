@@ -40,14 +40,14 @@ class TaskController extends Controller
         return $result;
     }
 
-    public function updateTask(Request $request){
-        $task = [ 
+    public function updateTask($id,Request $request){
+        $task = [
             "name" => $request->input('name'),
             "description" => $request->input('description'),
             "done" => $request->input('done')
         ];
-        
-
+        $result =$this->taskRepo->updateTask($id,$task);
+        return $result;
     }
 
 }

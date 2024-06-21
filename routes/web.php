@@ -22,3 +22,6 @@ Route::get('/addTask',function(){
     return view('addTask');
 });
 Route::post('/addTaskRequest',[HomeControllerWeb::class, 'AddTaskAndRealoadHomePage']);
+Route::get('editTask/{id}',function(){
+    return view('editTask');
+});
