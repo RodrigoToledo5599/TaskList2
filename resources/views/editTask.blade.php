@@ -11,7 +11,7 @@
     <h1 class="display-4 text-center">Edit your Task</h1>
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <form action="/addTaskRequest" method="POST">
+        <form action="/editTaskRequest/{{$task->id}}" method="POST">
             @csrf
             @method('PUT')
           <div class="mb-3">
@@ -23,8 +23,12 @@
             <textarea name="description" class="form-control" id="taskDescription" rows="3">{{$task->description}}</textarea>
           </div>
           <div class="mb-3">
-            <input class="form-check-input" type="checkbox" value="done" id="flexCheckChecked" checked>
-            <label class="form-check-label" for="flexCheckChecked">done?</label>
+            <label class="form-check-label" for="flexCheckChecked">Done?</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @if($task->id == 1)
+              <input class="form-check-input" type="checkbox" value="done" id="flexCheckChecked" checked>
+            @else
+              <input class="form-check-input" type="checkbox" value="done" id="flexCheckChecked">
+            @endif
           </div>
           {{-- <br><br> --}}
           <button type="submit" class="btn btn-primary">Edit</button>

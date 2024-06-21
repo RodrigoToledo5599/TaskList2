@@ -41,4 +41,17 @@ class HomeControllerWeb extends Controller
                                 "task" => json_decode($task)[0]
         ]);
     }
+
+    public function EditTaskRequest($id,Request $request){
+        $taskRepo = new TaskRepository();
+        $doneResult = $request['done'] == null ? 0 : 1;
+        // dd($doneResult);
+        $task = [
+            "name" => $request['name'],
+            "description" => $request['description'],
+            "done" => $doneResult
+        ];
+        $taskRepo->updateTask($id,$task);
+        return redirect('/home');
+    }
 }
