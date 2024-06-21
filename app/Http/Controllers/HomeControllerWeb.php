@@ -33,4 +33,10 @@ class HomeControllerWeb extends Controller
 
 
     }
+
+    public function DeleteTaskRequest($id){
+        $taskRepo = new TaskRepository();
+        $taskRepo->deleteTask($id);
+        return redirect('/home');
+    }
 }

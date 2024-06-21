@@ -16,9 +16,12 @@
         <h2>Your Tasks:</h2>
         <ul class="list-group">
           @foreach($tasks as $task)
-            <li class="list-group-item">
-              {{$task->id}} &nbsp;&nbsp;&nbsp;&nbsp;
-              {{$task->name}}
+            <li class="list-group-item d-flex  flex-row justify-content-between ">
+              <div>
+                {{$task->id}} &nbsp;&nbsp;&nbsp;&nbsp;
+                {{$task->name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </div>
+              <a class="btn btn-warning" data-method="delete" href="/deleteTaskRequest/{{$task->id}}"> delete </a>
             </li>
            @endforeach
         </ul>
