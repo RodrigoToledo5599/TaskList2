@@ -26,7 +26,7 @@ class TaskRepository
                 'description' => $task['description'],
                 'done' => $task['done']
             ]);
-            return "task " . $task['name'] . " was created sucessfully";
+            // return "task " . $task['name'] . " was created sucessfully";
         }
         catch(Exception $e){
             Log::error_log($e->getMessage);

@@ -4,32 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TaskList App</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
   <div class="container py-5">
-    <h1 class="display-4 text-center">Take Control of Your Day</h1>
-    <p class="lead text-center mb-4">Organize your tasks and boost your productivity with TaskList App.</p>
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <form>
-          <div class="input-group mb-3">
-            <input type="text" class="form-control form-control-lg" placeholder="Add a new task">
-            <button class="btn btn-primary btn-lg" type="submit">Add Task</button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <a href="/addTask" class="btn btn-primary btn-lg" >Add Task</a>
+    <h1 class="display-4 text-center">Your Tasks</h1>
     <hr class="my-5">
     <div class="row">
       <div class="col">
-        <h2>Your Tasks</h2>
+        <h2>Your Tasks:</h2>
         <ul class="list-group">
-          </ul>
+          @foreach($tasks as $task)
+            <li class="list-group-item">
+              {{$task->id}} &nbsp;&nbsp;&nbsp;&nbsp;
+              {{$task->name}}
+            </li>
+           @endforeach
+        </ul>
       </div>
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-bskAUcGYLNBzUHbsjoXBw4Yh4+felzJGLxQvNavJunQEYghXk2G5luoIqLlu58mO" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeControllerWeb;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/home',function (){
-//     return
-// })
+Route::get('/home',[HomeControllerWeb::class, 'LoadHomePage']);
+Route::get('/addTask',function(){
+    return view('addTask');
+});
+Route::post('/addTaskRequest',[HomeControllerWeb::class, 'AddTaskAndRealoadHomePage']);

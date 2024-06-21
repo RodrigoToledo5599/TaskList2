@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Repository\TaskRepository;
+
+
+class HomeControllerWeb extends Controller
+{
+    // public $taskRepo;
+    // public function __construct(TaskRepository $taskRepository){
+    //     $this->$taskRepo = $taskRepository;
+    // }
+
+    public function LoadHomePage(){
+        $taskRepo = new TaskRepository();
+        $tasks = $taskRepo->getAllTasks();
+        return view('home',[
+                            'tasks' => $tasks
+                            ]);
+    }
+
+    public function AddTaskAndRealoadHomePage(Request $request){
+        $taskRepo = new TaskRepository();
+        $task = [
+            "name" => $request["name"],
+            "description" => $request["description"],
+            "done" => false
+        ];
+        $taskRepo->createTask($task);
+        return redirect('/home');
+
+
+    }
+}
