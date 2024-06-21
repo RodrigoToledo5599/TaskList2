@@ -24,7 +24,7 @@
         <h2>Your Tasks:</h2>
         <ul class="list-group">
           @foreach($tasks as $task)
-            <li class="list-group-item d-flex  flex-row justify-content-between ">
+            <li class="list-group-item d-flex flex-row justify-content-between ">
               <div>
                 {{$task->id}} &nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="/editTaskPage/{{$task->id}}"> {{$task->name}} </a>
