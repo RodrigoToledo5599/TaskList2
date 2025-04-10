@@ -18,7 +18,7 @@
                         <form action="/login" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="name">Email:</label>
+                                <label for="name">Name:</label>
                                 <input type="" name="name" class="form-control" id="name">
                                 <small id="emailHelp" class="form-text text-muted">
                             </div>

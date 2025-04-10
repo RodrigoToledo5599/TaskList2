@@ -14,7 +14,6 @@ class AuthController extends Controller
             $token = $user->createToken('MyAppToken')->accessToken;
             return redirect('/home');
         }
-        else return "nao foi possivel encontrar o usuario";
-        
+        else return "nao foi possivel encontrar o usuario";   
     }
 }
